@@ -30,6 +30,18 @@ User.prototype.validate = function(){
     if (this.data.username.lenght > 30){this.errors.push("Username cannot exceed 30 characters")}
 
 }
+
+User.prototype.login = function(callback){
+    this.cleanUp()
+    usersCollection.findOne({username: this.data.username}, (err, attemptedUser) => {
+        if(attemptedUser && attemptedUser.password == this.data.password){
+            callback("congrats")
+        }else{
+            callback("Please try again")
+        }
+    })
+}
+
 User.prototype.register = function() {
     //ste #1: validate user data
     this.cleanUp()

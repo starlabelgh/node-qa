@@ -2,7 +2,7 @@
   "name": "qa",
   "version": "1.0.0",
   "description": "",
-  "main": "db.js",
+  "main": "./db.js",
   "start": "db.js",
   "scripts": {
     "watch": "nodemon db",
